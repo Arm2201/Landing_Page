@@ -1,4 +1,4 @@
-![Screenshot 2025-02-16 212707](https://github.com/user-attachments/assets/c30588f5-2e5f-41af-95a4-79de308da917)Welcome to my Landing_Page website!
+Welcome to my Landing_Page website!
 
 This project gives you:
 - home page
@@ -16,3 +16,5 @@ And then run the program:
 - python manage.py runserver
 
 
+![Screenshot 2025-02-16 212707](https://github.com/user-attachments/assets/c30588f5-2e5f-41af-95a4-79de308da917)
+![Screenshot 2025-02-16 212652](https://github.com/user-attachments/assets/23e6dc83-4981-4b89-8362-8d622f986bb1)
