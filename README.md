@@ -6,7 +6,7 @@ This project gives you:
 - login page
 - logout page
 
-This project links the given username, password, and email (when you register) to the phpmyadmin database. You will need to download xampp in order to link to the localhost database. 
+This project links the given username, password, and email (when you register) to the database. You will need to download xampp in order to link to the MySQL database. 
 
 Before running the program, run these commands:
 - python manage.py makemigrations
