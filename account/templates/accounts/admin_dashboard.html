@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-container">
+            <h1 class="dashboard-title">Admin Dashboard</h1>
+        </div>
+        
+        <p>Welcome, <strong>{{ user.username }}</strong> (Admin)</p>
+
+        <h3>📊 User Statistics</h3>
+        <ul>
+            <li>Total Users: <strong>{{ users_count }}</strong></li>
+            <li>Admins: <strong>{{ admins_count }}</strong></li>
+            <li>Regular Users: <strong>{{ regular_users_count }}</strong></li>
+        </ul>
+
+        <h3>📋 Registered Users</h3>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Admin Status</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{% if user.is_staff %}Yes{% else %}No{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="{% url 'home' %}"><button>🏠 Home</button></a>
+        <a href="{% url 'logout' %}"><button>🚪 Logout</button></a>
+    </div>
+</body>
+</html>

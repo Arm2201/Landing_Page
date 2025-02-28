@@ -9,7 +9,10 @@
         <h1>Welcome to Our Website</h1>
         {% if user.is_authenticated %}
             <p>Hello, {{ user.username }}!</p>
+            {% if user.is_staff or user.is_superuser %}
+            {% endif %}
             <a href="{% url 'logout' %}"><button>Logout</button></a>
+            <a href="{% url 'admin_dashboard' %}"><button>Admin</button></a>
         {% else %}
             <a href="{% url 'login' %}"><button>Login</button></a>
             <a href="{% url 'register' %}"><button>Register</button></a>

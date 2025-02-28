@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
+# Original CustomUserManager (kept as requested)
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None):
         if not email:
@@ -23,8 +24,8 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-
-class CustomUserManager(BaseUserManager):
+# Second CustomUserManager (renamed to avoid conflicts)
+class CustomUserManagerWithUsername(BaseUserManager):
     def create_user(self, email, password=None, username=None):
         if not email:
             raise ValueError('Users must have an email address')
@@ -53,7 +54,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True, default="")
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    objects = CustomUserManager()
+    
+    # Use the updated manager with username support
+    objects = CustomUserManagerWithUsername()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
